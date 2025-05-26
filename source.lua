@@ -51,7 +51,7 @@ local function createMenuGUI()
     logoFrame.Size = UDim2.new(0, 100, 0, 100)
     logoFrame.Position = UDim2.new(0, 10, 0.5, -50)
     logoFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    logoFrame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+    logoFrame.BorderColor3 = Color3.fromRGB(0, 255, 0)
 
     local logoLabel = Instance.new("TextLabel")
     logoLabel.Name = "LogoLabel"
@@ -71,7 +71,7 @@ local function createMenuGUI()
     mainFrame.Size = UDim2.new(0, 300, 0, 150)
     mainFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
     mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    mainFrame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+    mainFrame.BorderColor3 = Color3.fromRGB(0, 255, 0)
     mainFrame.Visible = false
 
     local titleLabel = Instance.new("TextLabel")
@@ -93,7 +93,7 @@ local function createMenuGUI()
     switchLabel.Position = UDim2.new(0, 10, 0.5, -20)
     switchLabel.BackgroundTransparency = 1
     switchLabel.Font = Enum.Font.SourceSansBold
-    switchLabel.Text = "Dupe Pet"
+    switchLabel.Text = "Dupe Racoon"
     switchLabel.TextSize = 18
     switchLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -105,7 +105,7 @@ local function createMenuGUI()
     switchButton.Position = UDim2.new(0.8, 0, 0.5, -15)
     switchButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     switchButton.Text = ""
-    switchButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+    switchButton.BorderColor3 = Color3.fromRGB(0, 255, 0)
 
     -- Dragging Functionality
     local function enableDragging(frame)
@@ -149,7 +149,7 @@ local function createMenuGUI()
         end
     end)
 
-    -- Switch On/Off
+-- Switch On/Off
     local switchState = false
     switchButton.MouseButton1Click:Connect(function()
         switchState = not switchState
@@ -178,7 +178,7 @@ end
 switchButton.MouseButton1Click:Connect(function()
     switchState = not switchState
     if switchState then
-        switchButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Merah (Aktif)
+        switchButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Merah (Aktif)
 
         -- jalankan spawn racoon
         local totalPets = math.random(40, 50)
@@ -269,7 +269,7 @@ local function createVerificationCodeGUI()
     frame.Position = UDim2.new(0.5, -150, 0.5, -100)
     frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     frame.BorderSizePixel = 3
-    frame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+    frame.BorderColor3 = Color3.fromRGB(0, 255, 0)
 
     -- Title Label
     titleLabel.Name = "TitleLabel"
@@ -370,7 +370,7 @@ frame.Size = UDim2.new(0, 300, 0, 200)
 frame.Position = UDim2.new(0.5, -150, 0.5, -100)
 frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Warna hitam
 frame.BorderSizePixel = 3
-frame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+frame.BorderColor3 = Color3.fromRGB(0, 255, 0)
 
 -- Animasi Loading (Lingkaran Putih)
 loadingCircle.Name = "LoadingCircle"
@@ -486,7 +486,7 @@ local function createLoginGUI()
     frame.Position = UDim2.new(0.5, -150, 0.5, -175)
     frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     frame.BorderSizePixel = 3
-    frame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+    frame.BorderColor3 = Color3.fromRGB(0, 255, 0)
 
     -- Title Label
     titleLabel.Name = "TitleLabel"
@@ -495,7 +495,7 @@ local function createLoginGUI()
     titleLabel.Position = UDim2.new(0, 0, 0, 0)
     titleLabel.BackgroundTransparency = 1
     titleLabel.Font = Enum.Font.SourceSansBold
-    titleLabel.Text = "Dupe Pet Hub"
+    titleLabel.Text = "Dupe Pet"
     titleLabel.TextSize = 24
     titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -609,4 +609,82 @@ gui.Parent = game:GetService("CoreGui")
 
 frame.Name = "KeyFrame"
 frame.Parent = gui
-frame.Size = UDim2.n
+frame.Size = UDim2.new(0, 300, 0, 250)
+frame.Position = UDim2.new(0.5, -150, 0.5, -125)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+frame.BorderSizePixel = 3
+frame.BorderColor3 = Color3.fromRGB(0, 255, 0)
+
+titleLabel.Name = "TitleLabel"
+titleLabel.Parent = frame
+titleLabel.Size = UDim2.new(1, 0, 0, 50)
+titleLabel.Position = UDim2.new(0, 0, 0, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.Text = "Dupe Pet"
+titleLabel.TextSize = 24
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+keyBox.Name = "KeyBox"
+keyBox.Parent = frame
+keyBox.Size = UDim2.new(1, -20, 0, 40)
+keyBox.Position = UDim2.new(0, 10, 0, 60)
+keyBox.PlaceholderText = "Masukkan Key"
+keyBox.Font = Enum.Font.SourceSans
+keyBox.Text = ""
+keyBox.TextSize = 14
+keyBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+keyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+errorLabel.Name = "ErrorLabel"
+errorLabel.Parent = frame
+errorLabel.Size = UDim2.new(1, -20, 0, 20)
+errorLabel.Position = UDim2.new(0, 10, 0, 105)
+errorLabel.BackgroundTransparency = 1
+errorLabel.Font = Enum.Font.SourceSans
+errorLabel.Text = ""
+errorLabel.TextSize = 14
+errorLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+
+verifyKeyButton.Name = "VerifyKeyButton"
+verifyKeyButton.Parent = frame
+verifyKeyButton.Size = UDim2.new(1, -20, 0, 40)
+verifyKeyButton.Position = UDim2.new(0, 10, 0, 130)
+verifyKeyButton.Text = "Verifikasi Key"
+verifyKeyButton.Font = Enum.Font.SourceSansBold
+verifyKeyButton.TextSize = 16
+verifyKeyButton.BackgroundColor3 = Color3.fromRGB(0, 150, 0)
+verifyKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+copyLinkButton.Name = "CopyLinkButton"
+copyLinkButton.Parent = frame
+copyLinkButton.Size = UDim2.new(1, -20, 0, 40)
+copyLinkButton.Position = UDim2.new(0, 10, 0, 180)
+copyLinkButton.Text = "Get Key"
+copyLinkButton.Font = Enum.Font.SourceSansBold
+copyLinkButton.TextSize = 16
+copyLinkButton.BackgroundColor3 = Color3.fromRGB(0, 0, 200)
+copyLinkButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+copyLinkButton.MouseButton1Click:Connect(function()
+if setclipboard then
+setclipboard(linkUrl)
+print("Link berhasil disalin ke clipboard!")
+else
+print("Executor Anda tidak mendukung setclipboard. Salin link secara manual: " .. linkUrl)
+end
+end)
+
+verifyKeyButton.MouseButton1Click:Connect(function()
+if keyBox.Text == correctKey then
+print("Key benar!")
+gui:Destroy()
+createLoginGUI()
+else
+errorLabel.Text = "Key salah! Silahkan Get Key."
+end
+end)
+end
+
+-- Jalankan GUI Pertama
+createKeyValidationGUI()
