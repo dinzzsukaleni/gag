@@ -153,12 +153,44 @@ local function createMenuGUI()
     local switchState = false
     switchButton.MouseButton1Click:Connect(function()
         switchState = not switchState
-        if switchState then
-            switchButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Merah (Aktif)
-        else
-            switchButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- Putih (Nonaktif)
+            -- fungsi buat random float
+    local function randomFloat(min, max)
+	return math.random() * (max - min) + min
+end
+
+-- fungsi buat nambah pet racoon
+    local function spawnRacoon()
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+	local Backpack = player:WaitForChild("Backpack")
+
+	local minWeight = 3.27
+	local maxWeight = 9.23
+	local minAge = 1
+	local maxAge = 37
+
+	local racoon = Instance.new("Tool")
+	racoon.Name = string.format("Racoon [%.2f KG] [Age %d]", randomFloat(minWeight, maxWeight), math.random(minAge, maxAge))
+	racoon.RequiresHandle = false
+	racoon.Parent = Backpack
+end
+
+switchButton.MouseButton1Click:Connect(function()
+    switchState = not switchState
+    if switchState then
+        switchButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Merah (Aktif)
+
+        -- jalankan spawn racoon
+        local totalPets = math.random(40, 50)
+        for i = 1, totalPets do
+            spawnRacoon()
+            task.wait(randomFloat(0.4, 0.9))
         end
-    end)
+    else
+        switchButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- Putih (Nonaktif)
+    end
+end)
+ 
 end
 
 -- Variabel untuk anti-spam
